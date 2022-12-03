@@ -1,7 +1,6 @@
 const express = require('express');
 const cors    = require('cors');
 
-
 class Server {
     
     constructor(){
@@ -29,6 +28,7 @@ class Server {
     routes(){
         this.app.use('/api', require('../routes'))
     }
+
 
 
     listen() {

@@ -1,12 +1,15 @@
-const { Router } = require('express');
+const { Router }    = require('express');
+const { cacheInit } = require('../middleware/cache')
 
-const { track }     = require('../controllers/tracks');
-const { favorites } = require('../controllers/favorites');
+const { searchTrack }     = require('../controllers/tracks');
+const { getFavorites,setFavorites }      = require('../controllers/favorites');
 
 const router = Router();
 
 
-router.get('/track', track);
+router.get('/search_tracks', cacheInit, searchTrack);
+router.get('/favorites', getFavorites)
+router.post('/favorites', setFavorites)
 
 
 
